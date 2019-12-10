@@ -1,3 +1,5 @@
+ALLOW_MISSING_DEPENDENCIES=true
+
 $(call inherit-product, vendor/omni/config/gsm.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
