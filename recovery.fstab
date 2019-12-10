@@ -7,8 +7,8 @@
 
 /recovery        emmc               /dev/block/bootdevice/by-name/recovery
 /misc            emmc               /dev/block/bootdevice/by-name/misc       flags=display="Misc"
-/cache			 ext4               /dev/block/bootdevice/by-name/cache      flags=wipeingui;wipeduringfactoryreset
-/cust			 ext4               /dev/block/bootdevice/by-name/cust       flags=display="Custom";wipeingui
+/cache           ext4               /dev/block/bootdevice/by-name/cache      flags=wipeingui;wipeduringfactoryreset
+/cust            ext4               /dev/block/bootdevice/by-name/cust       flags=display="Custom";wipeingui
 
 # Removable storage
 /usb-otg         auto              /dev/block/sda1         /dev/block/sda   flags=display="USB OTG";storage;removable;wipeingui
