@@ -1,15 +1,50 @@
-/boot            emmc              /dev/block/bootdevice/by-name/boot       flags=flashimg;backup=1
-/system_root     ext4              /dev/block/bootdevice/by-name/system     flags=display="System";backup=1
-/system_image    emmc              /dev/block/bootdevice/by-name/system     flags=flashimg
-/data            ext4              /dev/block/bootdevice/by-name/userdata   flags=display="Data";encryptable=footer;backup=1;wipeingui
-/vendor          ext4              /dev/block/bootdevice/by-name/vendor     flags=display="Vendor";backup=1;wipeingui
-/vendor_image    emmc              /dev/block/bootdevice/by-name/vendor     flags=flashimg
+# source https://github.com/KostyaJRZ/android_device_xiaomi_onclite-twrp/blob/master/recovery.fstab
 
-/recovery        emmc               /dev/block/bootdevice/by-name/recovery
-/misc            emmc               /dev/block/bootdevice/by-name/misc       flags=display="Misc"
-/cache           ext4               /dev/block/bootdevice/by-name/cache      flags=wipeingui;wipeduringfactoryreset
-/cust            ext4               /dev/block/bootdevice/by-name/cust       flags=display="Custom";wipeingui
+/data             ext4     /dev/block/bootdevice/by-name/userdata     flags=encryptable=footer;backup=1;wipeingui
+/cache            ext4     /dev/block/bootdevice/by-name/cache        flags=backup=1;wipeingui;wipeduringfactoryreset
+/system           ext4     /dev/block/bootdevice/by-name/system       flags=backup=1;wipeingui;display="System"
+/system_image     emmc     /dev/block/bootdevice/by-name/system       flags=backup=1;flashimg=1
+/boot             emmc     /dev/block/bootdevice/by-name/boot         flags=backup=1;flashimg=1
+/recovery         emmc     /dev/block/bootdevice/by-name/recovery     flags=backup=1;flashimg=1
+/aboot            emmc     /dev/block/bootdevice/by-name/aboot        flags=display="Bootloader";backup=1;flashimg=1
+/abootbak         emmc     /dev/block/bootdevice/by-name/abootbak     flags=display="Bootloader_Backup";backup=1;flashimg=1
+/vendor           ext4     /dev/block/bootdevice/by-name/vendor       flags=display="Vendor";backup=1;wipeingui
+/vendor_image     emmc     /dev/block/bootdevice/by-name/vendor       flags=display="Vendor_image";flashimg=1;backup=1
+/firmware         vfat     /dev/block/bootdevice/by-name/modem        flags=display="Firmware"
+/firmware_image   emmc     /dev/block/bootdevice/by-name/modem        flags=display="Firmware";flashimg=1;backup=1
+/persist          ext4     /dev/block/bootdevice/by-name/persist      flags=display="Persist";backup=1
+/persist_image    emmc     /dev/block/bootdevice/by-name/persist      flags=display="Persist";flashimg=1
+/persistbak       ext4     /dev/block/bootdevice/by-name/persistbak   flags=display="Persist_backup";backup=1
+/persistbak_image emmc     /dev/block/bootdevice/by-name/persistbak   flags=display="Persist_backup";flashimg=1
+/dsp              ext4     /dev/block/bootdevice/by-name/dsp          flags=display="dsp";backup=1
+/dsp_image        emmc     /dev/block/bootdevice/by-name/dsp          flags=display="dsp";flashimg=1
+/cust             ext4     /dev/block/bootdevice/by-name/cust         flags=display="cust";backup=1
+/cust_image       emmc     /dev/block/bootdevice/by-name/cust         flags=display="cust";flashimg=1
+/splash           emmc     /dev/block/bootdevice/by-name/splash       flags=display="Splash";backup=1;flashimg=1
+/sbl1             emmc     /dev/block/bootdevice/by-name/sbl1         flags=display="Sbl1";backup=1;flashimg=1
+/rpm              emmc     /dev/block/bootdevice/by-name/rpm          flags=display="Rpm";backup=1;flashimg=1
+/tz               emmc     /dev/block/bootdevice/by-name/tz           flags=display="Tz";backup=1;flashimg=1
+
+/misc             emmc     /dev/block/bootdevice/by-name/misc
+/keystore         emmc     /dev/block/bootdevice/by-name/keystore
+/ssd              emmc     /dev/block/bootdevice/by-name/ssd
+/DDR              emmc     /dev/block/bootdevice/by-name/DDR
+/devinfo          emmc     /dev/block/bootdevice/by-name/devinfo      flags=display="devinfo";backup=1;flashimg=1
+/fsc              emmc     /dev/block/bootdevice/by-name/fsc
+/sec              emmc     /dev/block/bootdevice/by-name/sec
+
+/fsg              emmc     /dev/block/bootdevice/by-name/fsg          flags=display="fsg";backup=1
+/efs1             emmc     /dev/block/bootdevice/by-name/modemst1     flags=backup=1;display=EFS
+/efs2             emmc     /dev/block/bootdevice/by-name/modemst2     flags=backup=1;subpartitionof=/efs1
+
+/msadp            emmc     /dev/block/bootdevice/by-name/msadp        flags=display="msadp";backup=1;flashimg=1
+/apdp             emmc     /dev/block/bootdevice/by-name/apdp         flags=display="apdp";backup=1;flashimg=1
+/cmnlib64         emmc     /dev/block/bootdevice/by-name/cmnlib64     flags=display="cmnlib64";backup=1;flashimg=1
+/cmnlib           emmc     /dev/block/bootdevice/by-name/cmnlib       flags=display="cmnlib";backup=1;flashimg=1
+/keymaster        emmc     /dev/block/bootdevice/by-name/keymaster    flags=display="keymaster";backup=1;flashimg=1
+/devcfg           emmc     /dev/block/bootdevice/by-name/devcfg       flags=display="devcfg";backup=1;flashimg=1
+/mdtp             emmc     /dev/block/bootdevice/by-name/mdtp         flags=display="mdtp";backup=1;flashimg=1
 
 # Removable storage
-/usb-otg         auto              /dev/block/sda1         /dev/block/sda   flags=display="USB OTG";storage;removable;wipeingui
-/external_sd     auto              /dev/block/mmcblk1p1                     flags=display="External SD";storage;removable;wipeingui
+/usb-otg          auto     /dev/block/sda1         /dev/block/sda     flags=display="USB OTG";storage;removable;wipeingui
+/external_sd      auto     /dev/block/mmcblk1p1                       flags=display="External SD";storage;removable;wipeingui
