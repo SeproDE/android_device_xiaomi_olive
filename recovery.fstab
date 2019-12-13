@@ -24,6 +24,7 @@
 /sbl1             emmc     /dev/block/bootdevice/by-name/sbl1         flags=display="Sbl1";backup=1;flashimg=1
 /rpm              emmc     /dev/block/bootdevice/by-name/rpm          flags=display="Rpm";backup=1;flashimg=1
 /tz               emmc     /dev/block/bootdevice/by-name/tz           flags=display="Tz";backup=1;flashimg=1
+/vbmeta           emmc     /dev/block/bootdevice/by-name/vbmeta       flags=display="vbmeta";backup=1;flashimg=1
 
 /misc             emmc     /dev/block/bootdevice/by-name/misc
 /keystore         emmc     /dev/block/bootdevice/by-name/keystore
@@ -44,6 +45,7 @@
 /keymaster        emmc     /dev/block/bootdevice/by-name/keymaster    flags=display="keymaster";backup=1;flashimg=1
 /devcfg           emmc     /dev/block/bootdevice/by-name/devcfg       flags=display="devcfg";backup=1;flashimg=1
 /mdtp             emmc     /dev/block/bootdevice/by-name/mdtp         flags=display="mdtp";backup=1;flashimg=1
+/dtbo             emmc     /dev/block/bootdevice/by-name/dtbo         flags=display="dtbo";backup=1;flashimg=1
 
 # Removable storage
 /usb-otg          auto     /dev/block/sda1         /dev/block/sda     flags=display="USB OTG";storage;removable;wipeingui
