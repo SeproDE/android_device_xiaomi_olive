@@ -18,10 +18,11 @@ BOARD_PERSISTIMAGE_PARTITION_SIZE := 0x8000000
 BOARD_FLASH_BLOCK_SIZE := 0x0800
 
 BOARD_KERNEL_BASE := 0x80000000
-BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200,n8
-BOARD_KERNEL_CMDLINE += androidboot.console=ttyMSM0 androidboot.hardware=qcom user_debug=30 msm_rtb.filter=0x237 ehci-hcd.park=3
-BOARD_KERNEL_CMDLINE += androidboot.bootdevice=7824900.sdhci androidboot.usbconfigfs=true androidboot.selinux=permissive androidboot.configfs=true
-BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1 earlycon=msm_hsl_uart,0x78B0000 vmalloc=300M firmware_class.path=/vendor/firmware_mnt/image loop.max_part=7 
+
+BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200,n8 
+BOARD_KERNEL_CMDLINE += androidboot.console=ttyMSM0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 
+BOARD_KERNEL_CMDLINE += androidboot.bootdevice=7824900.sdhci earlycon=msm_serial_dm,0x78B0000 firmware_class.path=/vendor/firmware_mnt/image 
+BOARD_KERNEL_CMDLINE += androidboot.usbconfigfs=true loop.max_part=7
 
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
@@ -42,7 +43,6 @@ TW_EXTRA_LANGUAGES := true
 TW_NO_SCREEN_BLANK := true
 TW_EXCLUDE_TWRPAPP := true
 TW_NO_SCREEN_TIMEOUT  := true
-TW_EXCLUDE_MTP  := false
 TW_HAS_USB_STORAGE := true
 TW_NO_USB_STORAGE := false
 
@@ -67,16 +67,18 @@ BOARD_HAS_NO_REAL_SDCARD := true
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TARGET_USERIMAGES_USE_EXT4 := true
+TW_INCLUDE_REPACKTOOLS := true
 
 # include vbmeta.img
 BOARD_AVB_ENABLE := true
+BOARD_BUILD_DISABLED_VBMETAIMAGE := false
 
 # Enable crypto
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_FBE := true
 TW_INCLUDE_CRYPTO_FBE := true
 TW_CRYPTO_USE_SYSTEM_VOLD := false
-TW_INCLUDE_REPACKTOOLS := true
+
 
 
 TARGET_HW_DISK_ENCRYPTION := false
