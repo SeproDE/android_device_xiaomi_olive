@@ -1,6 +1,6 @@
 # source https://github.com/KostyaJRZ/android_device_xiaomi_onclite-twrp/blob/master/recovery.fstab
 
-/data             ext4     /dev/block/bootdevice/by-name/userdata     flags=encryptable=footer;backup=1;wipeingui
+/data             ext4     /dev/block/bootdevice/by-name/userdata     flags=fileencryption=ice:aes-256-cts;backup=1;wipeingui
 /cache            ext4     /dev/block/bootdevice/by-name/cache        flags=backup=1;wipeingui;wipeduringfactoryreset
 /system           ext4     /dev/block/bootdevice/by-name/system       flags=backup=1;wipeingui;display="System"
 /system_image     emmc     /dev/block/bootdevice/by-name/system       flags=backup=1;flashimg=1
