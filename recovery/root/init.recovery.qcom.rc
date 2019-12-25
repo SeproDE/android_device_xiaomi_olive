@@ -1,6 +1,3 @@
-on init
-    start hwservicemanager
-    
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
@@ -10,6 +7,25 @@ on fs
     chmod 0664 /dev/ion
     chown system system /dev/ion
     install_keyring
+
+on init
+    mkdir /system/bin
+    mkdir /system/etc
+    symlink /system/etc /etc
+    symlink /sbin/toybox /system/bin/sh
+    symlink /vendor/manifest.xml /system/manifest.xml
+  
+
+    start hwservicemanager
+   #start prepdecrypt
+    setprop crypto.ready 1
+
+service prepdecrypt /sbin/prepdecrypt.sh
+    oneshot
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
 
 on post-fs-data
     mkdir /data/vendor/misc 01771 system system
