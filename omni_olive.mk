@@ -2,6 +2,7 @@ ALLOW_MISSING_DEPENDENCIES=true
 
 $(call inherit-product, vendor/omni/config/gsm.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
 $(call inherit-product, vendor/omni/config/common.mk)
 
@@ -26,5 +27,4 @@ PRODUCT_PROPERTY_OVERRIDES := ro.treble.enabled=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.build.version.security_patch=2099-12-31 \
-	ro.vendor.build.security_patch=2099-12-31 \
-	ro.product.cpu.abilist=arm64-v8a,armeabi-v7a,armeabi
+	ro.vendor.build.security_patch=2099-12-31
