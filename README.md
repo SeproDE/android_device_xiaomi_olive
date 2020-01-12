@@ -1,4 +1,7 @@
-# android_device_xiaomi_olive
+## Note:
+There is an [official version](https://github.com/TeamWin/android_device_xiaomi_olive) available ([twrp.me](https://twrp.me/xiaomi/xiaomiredmi8.html)).
+
+## android_device_xiaomi_olive
 TWRP Device tree for Xiaomi Redmi 8 (olive)
 
 Works on my Xiaomi Redmi 8 Global with a Tianma display. No promises that it works anywhere else.
